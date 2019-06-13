@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма</title>
+</head>
+<body>
+<form action="/handler.php" method="post">
+    <label>Имя: <input type="text" name="clientFirstName" placeholder="Ваше имя"/></label><br/><br/>
+    <label>Фамилия: <input type="text" name="clientSecondName" placeholder="Ваша фамилия"/></label><br/><br/>
+    <label>Возраст: <input type="text" name="clientAge" placeholder="Вводить нужно цифрами"/></label><br/><br/>
+    <label>Информация о себе: <br/>
+        <textarea name="customerInformation" maxlength="500" placeholder="Максимальное количество символов 500" cols="50" rows="10"></textarea>
+    </label>
+    <br/><br/>
+    <label>Пол: </label>
+    <label>
+        <select name="gender">
+            <option value="Мужской">Мужской</option>
+            <option value="Женский">Женский</option>
+        </select>
+    </label><br/><br/>
+    <label>Семейное положение: </label><br/>
+    <label>Женат/ Замужем <input type="radio" name="maritalStatus" value="Женат/ Замужем"></label><br/>
+    <label>Холост/ Не замужем <input type="radio" name="maritalStatus" value="Холост/ Не замужем"></label><br/>
+    <label>Разведен/ Разведена <input type="radio" name="maritalStatus" value="Разведен/ Разведена"></label><br/><br/>
+    <a href="Catalog.html">Каталог услуг</a><br/><br/>
+    <label>Какие услуги хотите получать: </label><br/>
+    <label>
+        <select size="3" multiple name="service[]">
+            <option disabled>Выберите одну или несколько</option>
+            <option value="Услуга 1">Услуга 1</option>
+            <option value="Услуга 2">Услуга 2</option>
+            <option value="Услуга 3">Услуга 3</option>
+            <option value="Услуга 4">Услуга 4</option>
+            <option value="Услуга 5">Услуга 5</option>
+        </select>
+    </label><br/><br/>
+    <button type="submit">Отправить заявку</button>
+</form>
+</body>
+</html>
