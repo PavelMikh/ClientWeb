@@ -10,10 +10,14 @@ div {
     color: #57a4c1;
     font-weight: bold;
     font-size: 13px;
+    margin-bottom: 13px;
 }
-.normal-text {
+div span, div p {
     color: #000;
     font-weight: normal;
+}
+p {
+    text-indent: 1em;
 }
 .cross-out {
     text-decoration: line-through;
