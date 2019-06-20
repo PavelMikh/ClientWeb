@@ -1,0 +1,20 @@
+h1 {
+    font-family: Arial, serif;
+    font-weight: normal;
+    font-size: 24px;
+}
+body {
+    background-color: #feeed6;
+}
+div {
+    color: #57a4c1;
+    font-weight: bold;
+    font-size: 13px;
+}
+.normal-text {
+    color: #000;
+    font-weight: normal;
+}
+.cross-out {
+    text-decoration: line-through;
+}
