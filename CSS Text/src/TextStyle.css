@@ -1,24 +1,37 @@
+.side-borders {
+    max-width: 830px;
+}
+
 h1 {
-    font-family: Arial, serif;
     font-weight: normal;
     font-size: 24px;
+    color: #6a6565;
 }
+
 body {
+    font-family: Arial, sans-serif;
     background-color: #feeed6;
 }
-div {
+
+.blue {
     color: #57a4c1;
     font-weight: bold;
-    font-size: 13px;
-    margin-bottom: 13px;
+    font-size: 14px;
 }
-div span, div p {
-    color: #000;
+
+.indent {
+    margin-bottom: 18px;
+}
+
+.regular-font {
+    color: #788898;
     font-weight: normal;
 }
-p {
+
+p.red-row {
     text-indent: 1em;
 }
+
 .cross-out {
     text-decoration: line-through;
 }
