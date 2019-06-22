@@ -1,34 +1,35 @@
-.side-borders {
-    max-width: 830px;
-}
-
-h1 {
-    font-weight: normal;
-    font-size: 24px;
-    color: #6a6565;
-}
-
 body {
     font-family: Arial, sans-serif;
     background-color: #feeed6;
 }
 
-.blue {
-    color: #57a4c1;
-    font-weight: bold;
-    font-size: 14px;
+.side-borders {
+    max-width: 730px;
+    margin: 5px;
 }
 
-.indent {
-    margin-bottom: 18px;
+.main-title {
+    font-weight: normal;
+    font-size: 30px;
+    color: #676565;
+}
+
+.blue {
+    color: #5e90b2;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .regular-font {
-    color: #788898;
+    color: #886d70;
     font-weight: normal;
 }
 
-p.red-row {
+.indent {
+    margin-bottom: 10px;
+}
+
+.red-row {
     text-indent: 1em;
 }
 
