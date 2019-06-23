@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+td {
+    border-style: solid;
+    border-width: 1px 1px;
+    border-color: #cfcfcf;
+    padding: 10px;
+    padding-right: 50px;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 17px;
+    color: #242424;
+}
+
+.white-text {
+    color: #fcfdfe;
+    font-size: 20px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #eeeeee;
+}
+
+.side-borders {
+    max-width: 730px;
+    margin: 5px;
+}
+
+.blue-background {
+    background-color: #3498db;
+}
