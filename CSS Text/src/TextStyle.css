@@ -23,6 +23,8 @@ body {
 .regular-font {
     color: #886d70;
     font-weight: normal;
+    line-height: 1.5;
+    text-align: justify;
 }
 
 .indent {
