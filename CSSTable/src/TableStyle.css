@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+.table-size {
+    max-width: 750px;
+}
+
 .cell > * {
     border-style: solid;
     border-width: 1px 1px;
@@ -16,22 +20,7 @@
     font-family: Arial, sans-serif;
     font-size: 20px;
     color: #242424;
-}
-
-.cell :nth-child(1) {
-    width: 150px;
-}
-
-.cell :nth-child(2) {
-    width: 150px;
-}
-
-.cell :nth-child(3) {
-    width: 275px;
-}
-
-.cell :nth-child(4) {
-    width: 175px;
+    width: 100%;
 }
 
 .white-text {
