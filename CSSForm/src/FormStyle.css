@@ -2,16 +2,12 @@
     box-sizing: border-box;
 }
 
-.size {
-    max-width: 760px;
-    overflow-x: hidden;
-}
-
 .parent {
     font-family: Arial, sans-serif;
     font-size: 15px;
     color: #676565;
-    width: 100%;
+    max-width: 760px;
+    overflow-x: hidden;
     margin: 10px;
 }
 
