@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+}
+
+.size {
+    max-width: 760px;
+    overflow-x: hidden;
+}
+
+.parent {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    color: #676565;
+    width: 100%;
+    margin: 10px;
+}
+
+.child {
+    width: 100%;
+    padding: 15px 15px 10px 15px;
+    line-height: 2;
+}
+
+.headline-font {
+    font-size: 30px;
+    text-indent: 15px;
+    margin-bottom: 5px;
+}
+
+.background-color {
+    background: #feeed6;
+}
+
+.feedback label {
+    font-weight: bold;
+}
+
+.comment-style {
+    height: 120px;
+}
+
+.feedback > * :nth-child(even) {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.button-style {
+    color: #ffffff;
+    font-weight: bold;
+    background: #378db2;
+    padding: 10px;
+    float: right;
+}
+
+.child::after {
+    content: "";
+    display: block;
+    clear: both;
+}
