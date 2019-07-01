@@ -14,7 +14,7 @@
 .child {
     width: 100%;
     padding: 15px 15px 10px 15px;
-    line-height: 2;
+    line-height: normal;
 }
 
 .headline-font {
@@ -29,15 +29,21 @@
 
 .feedback label {
     font-weight: bold;
+    line-height: 2;
 }
 
 .comment-style {
     height: 120px;
+    max-width: 100%;
+    padding: 5px;
 }
 
 .feedback > * :nth-child(even) {
     width: 100%;
+    border: 0;
+    padding: 10px;
     margin-bottom: 10px;
+
 }
 
 .button-style {
@@ -45,7 +51,14 @@
     font-weight: bold;
     background: #378db2;
     padding: 10px;
+    height: 35px;
     float: right;
+    border: 0;
+}
+
+.button-style:hover {
+    cursor: grab;
+    background: #23799e;
 }
 
 .child::after {
