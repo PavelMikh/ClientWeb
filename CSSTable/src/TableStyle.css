@@ -15,14 +15,12 @@
 }
 
 .information {
-    /*border: 4px solid #cfcfcf;*/
     border-collapse: collapse;
     background-color: #ffffff;
     font-family: Arial, sans-serif;
     font-size: 20px;
     color: #242424;
     width: 100%;
-
 }
 
 .white-text {
