@@ -1,10 +1,16 @@
 function createRandomArray(length, max) {
+    length = length || 10;
+    max = max || 10;
+
     return Array.apply(null, Array(length)).map(function () {
         return Math.round(Math.random() * max);
     });
 }
 
 function createNumbersList(initialNumber, finalNumber) {
+    initialNumber = initialNumber || 1;
+    finalNumber = finalNumber || 100;
+
     var result = [];
     for (var i = initialNumber; i <= finalNumber; i++) {
         result.push(i);
@@ -31,6 +37,8 @@ function getEvenList(arr) {
 }
 
 function getPowList(arr, exponent) {
+    exponent = exponent || 2;
+
     var result = [];
     for (var i = 0; i < arr.length; i++) {
         result.push(Math.pow(arr[i], exponent));
