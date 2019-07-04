@@ -10,10 +10,11 @@ var evenArray = getEvenList(array);
 var sum = getSum(evenArray);
 console.log(sum);
 
-var numbers = createNumbersList(100);
+var numbers = createNumbersList(1, 100);
 console.log(numbers);
 
 var evenList = getEvenList(numbers);
+console.log(evenList);
 var evenPowList = getPowList(evenList, 2);
 console.log(evenPowList);
 
@@ -26,12 +27,18 @@ function createRandomArray(length, max) {
     });
 }
 
-function createNumbersList(finalNumber) {
+function createNumbersList(initialNumber, finalNumber) {
+    initialNumber = initialNumber || 1;
     finalNumber = finalNumber || 100;
 
-    return Array.apply(null, {length: finalNumber}).map(function (value, index) {
-        return index + 1;
-    });
+    var result = [];
+    var i = initialNumber;
+    while (i <= finalNumber) {
+        result.push(i);
+        i++;
+    }
+    return result;
+
 }
 
 function sortDescending(arr) {
@@ -55,9 +62,7 @@ function getEvenList(arr) {
 function getPowList(arr, exponent) {
     exponent = exponent || 2;
 
-    var result = [];
-    arr.forEach(function (item) {
-        result.push(Math.pow(item, exponent));
+    return arr.map(function (item) {
+        return Math.pow(item, exponent);
     });
-    return result;
 }
