@@ -32,7 +32,7 @@ var countryWithMaxCitiesCountList = getCountryNameWithMaxCitiesCount(countries);
 console.log(countryWithMaxCitiesCountList);
 
 var informationObject = {};
-createInformationProperty(countries);
+createInformationObjectProperty(countries);
 console.log(informationObject);
 
 function getSumPopulation(country) {
@@ -44,7 +44,7 @@ function getSumPopulation(country) {
     });
 }
 
-function createInformationProperty(countries) {
+function createInformationObjectProperty(countries) {
     countries.forEach(function (item) {
         var itemName = item["name"];
         informationObject[itemName] = getSumPopulation(item);
