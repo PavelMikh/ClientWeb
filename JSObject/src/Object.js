@@ -39,6 +39,7 @@ function getSumPopulation(country) {
     var citiesPopulation = country["cities"].map(function (city) {
         return city["population"];
     });
+
     return citiesPopulation.reduce(function (sum, number) {
         return sum + number;
     });
