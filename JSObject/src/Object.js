@@ -1,84 +1,72 @@
-var novosibirsk = new City("Novosibirsk", 1511000);
+var countries = [
+    norway = {
+        name: "Norway", cities: [
+            oslo = {name: "Oslo", population: 1026758},
+            bergen = {name: "Bergen", population: 271949},
+            trondheim = {name: "Trondheim", population: 182035},
+            stavanger = {name: "Stavanger", population: 130754}
+        ]
+    },
+    usa = {
+        name: "USA", cities: [
+            washington = {name: "Washington", population: 633427},
+            newYork = {name: "NewYork", population: 8623000},
+            losAngeles = {name: "LosAngeles", population: 4000000}
+        ]
+    },
+    russia = {
+        name: "Russia", cities: [
+            novosibirsk = {name: "Novosibirsk", population: 1511000},
+            moscow = {name: "Moscow", population: 11920000},
+            saintPetersburg = {name: "saintPetersburg", population: 4991000},
+            krasnoyarsk = {name: "Krasnoyarsk", population: 1007000}
+        ]
+    }];
 
-var moscow = new City("Moscow", 11920000);
+var countriesWithMaxCitiesList = getCountriesListWithMaxCities(countries);
+console.log(countriesWithMaxCitiesList);
 
-var saintPetersburg = new City("Saint-Petersburg", 4991000);
-
-var krasnoyarsk = new City("Krasnoyarsk", 1007000);
-
-var russia = new Country("Russia", [novosibirsk, moscow, saintPetersburg, krasnoyarsk]);
-
-var washington = new City("Washington", 633427);
-
-var newYork = new City("New York", 8623000);
-
-var losAngeles = new City("Los Angeles", 4000000);
-
-var usa = new Country("USA", [washington, newYork, losAngeles]);
-
-var oslo = new City("Oslo", 1026758);
-
-var bergen = new City("Bergen", 271949);
-
-var trondheim = new City("Trondheim", 182035);
-
-var stavanger = new City("Stavanger", 130754);
-
-var norway = new Country("Norway", [oslo, bergen, trondheim, stavanger]);
-
-var countries = [norway, usa, russia];
-
-var countryWithMaxCitiesCountList = getCountryNameWithMaxCitiesCount(countries);
-console.log(countryWithMaxCitiesCountList);
-
-var informationObject = {};
-createInformationObjectProperty(countries);
+var informationObject = createInformationObjectProperty(countries);
 console.log(informationObject);
 
-function getSumPopulation(country) {
-    var citiesPopulation = country["cities"].map(function (city) {
-        return city["population"];
-    });
+function getCityPopulation(city) {
+    return city.population;
+}
 
-    return citiesPopulation.reduce(function (sum, number) {
+function getSumPopulation(country) {
+    return country.cities.map(getCityPopulation).reduce(function (sum, number) {
         return sum + number;
-    });
+    }, 0);
 }
 
 function createInformationObjectProperty(countries) {
+    var obj = {};
     countries.forEach(function (item) {
-        var itemName = item["name"];
-        informationObject[itemName] = getSumPopulation(item);
+        var itemName = item.name;
+        obj[itemName] = getSumPopulation(item);
+    });
+    return obj;
+}
+
+function getCitiesCount(country) {
+    return country.cities.length;
+}
+
+function sortDescending(a, b) {
+    return b - a;
+}
+
+function getName(country) {
+    return country.name;
+}
+
+function createFilteredList(countries) {
+    return countries.filter(function (item) {
+        return item.cities.length === countries.map(getCitiesCount).sort(sortDescending)[0];
     });
 }
 
-function City(name, population) {
-    this.name = name;
-    this.population = population;
-}
-
-function Country(name, cities) {
-    this.name = name;
-    this.cities = cities;
-}
-
-function getCountryNameWithMaxCitiesCount(countries) {
-    var citiesCount = countries.map(function (item) {
-        return item["cities"].length;
-    });
-
-    citiesCount = citiesCount.sort(function (a, b) {
-        return b - a;
-    });
-
-    var maxCount = citiesCount[0];
-
-    var filterCountries = countries.filter(function (item) {
-        return item["cities"].length === maxCount;
-    });
-
-    return filterCountries.map(function (item) {
-        return item["name"];
-    });
+function getCountriesListWithMaxCities(countries) {
+    return createFilteredList(countries).map(getName);
 }
 
