@@ -42,7 +42,7 @@ krasnoyarsk.population = 1007000;
 var countriesWithMaxCitiesList = getCountriesListWithMaxCities(countries);
 console.log(countriesWithMaxCitiesList);
 
-var informationObject = createInformationObjectProperty(countries);
+var informationObject = getCountriesPopulationList(countries);
 console.log(informationObject);
 
 function getCityPopulation(city) {
@@ -55,7 +55,7 @@ function getSumPopulation(country) {
     }, 0);
 }
 
-function createInformationObjectProperty(countries) {
+function getCountriesPopulationList(countries) {
     var obj = {};
     countries.forEach(function (item) {
         var itemName = item.name;
