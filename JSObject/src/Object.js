@@ -1,25 +1,25 @@
 var countries = [
-    norway = {
+    {
         name: "Norway", cities: [
-            oslo = {name: "Oslo", population: 1026758},
-            bergen = {name: "Bergen", population: 271949},
-            trondheim = {name: "Trondheim", population: 182035},
-            stavanger = {name: "Stavanger", population: 130754}
+            {name: "Oslo", population: 1026758},
+            {name: "Bergen", population: 271949},
+            {name: "Trondheim", population: 182035},
+            {name: "Stavanger", population: 130754}
         ]
     },
-    usa = {
+    {
         name: "USA", cities: [
-            washington = {name: "Washington", population: 633427},
-            newYork = {name: "NewYork", population: 8623000},
-            losAngeles = {name: "LosAngeles", population: 4000000}
+            {name: "Washington", population: 633427},
+            {name: "NewYork", population: 8623000},
+            {name: "LosAngeles", population: 4000000}
         ]
     },
-    russia = {
+    {
         name: "Russia", cities: [
-            novosibirsk = {name: "Novosibirsk", population: 1511000},
-            moscow = {name: "Moscow", population: 11920000},
-            saintPetersburg = {name: "saintPetersburg", population: 4991000},
-            krasnoyarsk = {name: "Krasnoyarsk", population: 1007000}
+            {name: "Novosibirsk", population: 1511000},
+            {name: "Moscow", population: 11920000},
+            {name: "saintPetersburg", population: 4991000},
+            {name: "Krasnoyarsk", population: 1007000}
         ]
     }];
 
