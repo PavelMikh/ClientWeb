@@ -1,0 +1,37 @@
+div {
+    background-color: #ffe165;
+    max-width: 300px;
+    margin: 10px;
+}
+
+.converter {
+    width: 100%;
+    padding: 5px;
+}
+
+.red {
+    color: red;
+}
+
+.blue {
+    color: blue;
+}
+
+label {
+    float: right;
+    line-height: 2.5;
+    font-weight: bold;
+    color: #856b6b;
+}
+
+button {
+    float: right;
+    margin-top: 20px;
+    background-color: aquamarine;
+}
+
+.converter::after {
+    content: "";
+    display: block;
+    clear: both;
+}
