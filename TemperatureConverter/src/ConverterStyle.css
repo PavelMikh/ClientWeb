@@ -24,7 +24,12 @@ label {
     color: #856b6b;
 }
 
+input:first-child {
+    border: 0;
+}
+
 button {
+    border: 0;
     float: right;
     margin-top: 20px;
     background-color: aquamarine;
