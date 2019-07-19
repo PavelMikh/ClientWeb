@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         var newCelsiusValue = celsius.value;
 
         if (newCelsiusValue === "") {
-            kelvin.value = "";
+            kelvin.value = "Пустое поле ввода!";
             fahrenheit.value = "";
             return;
         }

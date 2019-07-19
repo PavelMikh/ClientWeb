@@ -1,12 +1,36 @@
-div {
+* {
+    box-sizing: border-box;
+}
+
+.parent {
     background-color: #ffe165;
-    max-width: 300px;
+    max-width: 320px;
+    margin: 10px;
+}
+
+.headline {
+    text-align: center;
     margin: 10px;
 }
 
 .converter {
     width: 100%;
-    padding: 5px;
+    line-height: 2;
+}
+
+.converter > * {
+    text-align: center;
+    margin: 0 10px 10px 10px;
+}
+
+#calculation-button {
+    border: 0;
+    background-color: aquamarine;
+}
+
+#calculation-button:hover {
+    cursor: grab;
+    background-color: #09f0a2;
 }
 
 .red {
@@ -17,25 +41,18 @@ div {
     color: blue;
 }
 
-label {
-    float: right;
-    line-height: 2.5;
+.fieldName {
     font-weight: bold;
     color: #856b6b;
 }
 
-input:first-child {
+.entry-field {
     border: 0;
+    padding: 2px;
+    width: 100%;
 }
 
-button {
-    border: 0;
-    float: right;
-    margin-top: 20px;
-    background-color: aquamarine;
-}
-
-.converter::after {
+.parent::after {
     content: "";
     display: block;
     clear: both;
