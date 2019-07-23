@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+
+.parent {
+    font-family: Arial, sans-serif;
+    max-width: 350px;
+    margin: 5px;
+}
+
+.todo-list {
+    background-color: #ffff7b;
+    width: 100%;
+}
+
+.headline {
+    padding-top: 10px;
+    font-family: "URW Gothic", sans-serif;
+    color: red;
+    text-align: center;
+}
+
+.user-enter {
+    /*margin: 5px;*/
+    padding: 5px;
+}
+
+input {
+    display: inline-block;
+    border: 0;
+    width: 100%;
+}
+
+button {
+    vertical-align: middle;
+    border: 0;
+    background-color: #c3eeee;
+    margin: 5px;
+}
+
+button:hover {
+    cursor: grab;
+    background-color: #68ecec;
+}
+
+.validation-message {
+    text-align: center;
+    color: red;
+}
+
+ul {
+    padding-bottom: 10px;
+}
+
+.todo-list::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+

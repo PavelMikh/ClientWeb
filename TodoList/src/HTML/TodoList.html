@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo LIst</title>
+    <link rel="stylesheet" href="../CSS/reset.css">
+    <link rel="stylesheet" href="../CSS/TodoListStyle.css">
+</head>
+<body>
+<div class="parent">
+    <div class="todo-list">
+        <div class="headline"><h1>СПИСОК ДЕЛ</h1></div>
+        <div class="user-enter">
+            <label>
+                <input id="new-todo-text" type="text">
+            </label>
+        </div>
+        <div>
+            <button id="add-new-todo" type="button">Добавить</button>
+            <button style="display: none" id="change-todo" type="button">Заменить</button>
+        </div>
+        <div style="display: none" class="validation-message">Необходимо ввести текст заметки!</div>
+        <ul id="todo-list">
+        </ul>
+    </div>
+</div>
+<script src="../libs/jquery-3.4.1.min.js"></script>
+<script src="../JS/TodoListScript.js"></script>
+</body>
+</html>
