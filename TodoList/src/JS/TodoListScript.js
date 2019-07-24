@@ -8,12 +8,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function createLi(text) {
         var li = document.createElement("li");
         li.innerHTML = "<span class='text'></span><button type='button'>x</button>" +
-            "<button type='button'>ред.</button>";
+            "<button type='button'>edit</button>";
         li.children[0].textContent = text;
         return li;
     }
 
-//todo: вынести обработчики событий отдельными функциями и потом их применять для новых элементов списка!!!!
     addTodoButton.addEventListener("click", function () {
         var newText = newTodoText.value;
         if (newText === "") {
@@ -33,8 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var editInput = document.createElement("input");
             editInput.id = "edit_input";
             editInput.type = "text";
-            editInput.value = newText;
-            // editInput.style.width = "100px";//tmp
+            editInput.value = li.children[0].innerText;
             div.appendChild(editInput);
             var saveButton = document.createElement("button");
             saveButton.type = "button";
@@ -42,12 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
             div.appendChild(saveButton);
             var deleteButton = document.createElement("button");
             deleteButton.type = "button";
-            deleteButton.innerHTML = "delete";
+            deleteButton.innerHTML = "cancel";
             div.appendChild(deleteButton);
             newTodoList.replaceChild(div, li);
             saveButton.addEventListener("click", function () {
-                var newLi = createLi(editInput.value);
-                newTodoList.replaceChild(newLi, div);
+                li.children[0].textContent = editInput.value;
+                newTodoList.replaceChild(li, div);
             });
             deleteButton.addEventListener("click", function () {
                 newTodoList.replaceChild(li, div);
