@@ -46,14 +46,12 @@
 }
 
 .button-style {
+    vertical-align: middle;
     margin-top: 15px;
-    display: inline-flex;
-    align-items: center;
     color: #ffffff;
     font-weight: bold;
     background: #378db2;
     padding: 10px;
-    height: 35px;
     float: right;
     border: 0;
 }

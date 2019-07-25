@@ -32,10 +32,8 @@ function createNumbersList(initialNumber, finalNumber) {
     finalNumber = finalNumber || 100;
 
     var result = [];
-    var i = initialNumber;
-    while (i <= finalNumber) {
+    for (var i = initialNumber; i <= finalNumber; i++) {
         result.push(i);
-        i++;
     }
     return result;
 

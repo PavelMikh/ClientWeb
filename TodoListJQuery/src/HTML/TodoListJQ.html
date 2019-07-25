@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo LIst</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+<div class="parent">
+    <div class="todo-list">
+        <h1 class="headline">СПИСОК ДЕЛ</h1>
+        <div class="user-enter">
+            <label>
+                <input id="new-todo-text" type="text" placeholder="Введите текст">
+            </label>
+        </div>
+        <div>
+            <button id="add-new-todo" type="button">Добавить</button>
+        </div>
+        <div style="display: none" class="validation-message">Необходимо ввести текст заметки!</div>
+        <ul style="display: none" id="new-todo-list" class="list">
+        </ul>
+    </div>
+</div>
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../JS/TodoListScript.js"></script>
+</body>
+</html>

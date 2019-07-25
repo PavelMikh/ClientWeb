@@ -3,9 +3,15 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/CSS Text/CSS Text.iml" filepath="$PROJECT_DIR$/CSS Text/CSS Text.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CSSForm/CSSForm.iml" filepath="$PROJECT_DIR$/CSSForm/CSSForm.iml" />
       <module fileurl="file://$PROJECT_DIR$/CSSTable/CSSTable.iml" filepath="$PROJECT_DIR$/CSSTable/CSSTable.iml" />
       <module fileurl="file://$PROJECT_DIR$/ClientWeb.iml" filepath="$PROJECT_DIR$/ClientWeb.iml" />
       <module fileurl="file://$PROJECT_DIR$/HTML/HTML.iml" filepath="$PROJECT_DIR$/HTML/HTML.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JSArray/JSArray.iml" filepath="$PROJECT_DIR$/JSArray/JSArray.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JSObject/JSObject.iml" filepath="$PROJECT_DIR$/JSObject/JSObject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TemperatureConverter/TemperatureConverter.iml" filepath="$PROJECT_DIR$/TemperatureConverter/TemperatureConverter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TodoList/TodoList.iml" filepath="$PROJECT_DIR$/TodoList/TodoList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TodoListJQuery/TodoListJQuery.iml" filepath="$PROJECT_DIR$/TodoListJQuery/TodoListJQuery.iml" />
     </modules>
   </component>
 </project>
