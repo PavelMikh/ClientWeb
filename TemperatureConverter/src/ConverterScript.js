@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        if (isNaN(parseFloat(newCelsiusValue))) {
+        if (isNaN(+newCelsiusValue)) {
             var errorMessage = "Ввели не число!";
             kelvin.value = errorMessage;
             fahrenheit.value = errorMessage;

@@ -23,13 +23,13 @@
     margin: 0 10px 10px 10px;
 }
 
-#calculation-button {
+.button {
     border: 0;
     background-color: aquamarine;
+    cursor: pointer;
 }
 
-#calculation-button:hover {
-    cursor: grab;
+.button:hover {
     background-color: #09f0a2;
 }
 
@@ -41,7 +41,7 @@
     color: blue;
 }
 
-.fieldName {
+.field-name {
     font-weight: bold;
     color: #856b6b;
 }
