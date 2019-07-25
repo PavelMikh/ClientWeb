@@ -9,18 +9,17 @@
 <body>
 <div class="parent">
     <div class="todo-list">
-        <div class="headline"><h1>СПИСОК ДЕЛ</h1></div>
+        <h1 class="headline">СПИСОК ДЕЛ</h1>
         <div class="user-enter">
             <label>
-                <input id="new-todo-text" type="text">
+                <input id="new-todo-text" type="text" placeholder="Введите текст">
             </label>
         </div>
         <div>
-            <button id="add-new-todo" type="button">ADD</button>
-            <button style="display: none" id="change-todo" type="button">Заменить</button>
+            <button id="add-new-todo" type="button">Добавить</button>
         </div>
         <div style="display: none" class="validation-message">Необходимо ввести текст заметки!</div>
-        <ul id="todo-list">
+        <ul style="display: none" id="new-todo-list" class="list">
         </ul>
     </div>
 </div>
