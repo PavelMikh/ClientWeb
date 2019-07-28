@@ -26,7 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
         validationMessage.style.display = "none";
 
         var li = createNote(newNote);
-        li.children[1].addEventListener("click", function () {
+
+        var deleteButton = li.children[1];
+        var editButton = li.children[2];
+
+        deleteButton.addEventListener("click", function () {
             newTodoList.removeChild(li);
             if (newTodoList.getElementsByTagName("li").length === 0) {
                 newTodoList.style.display = "none";
@@ -34,27 +38,33 @@ document.addEventListener("DOMContentLoaded", function () {
             newTodoText.focus();
         });
 
-        li.children[2].addEventListener("click", function () {
+        editButton.addEventListener("click", function () {
             var editingPanel = document.createElement("div");
+
             var newValueInput = document.createElement("input");
             newValueInput.type = "text";
             newValueInput.value = li.children[0].innerText;
             editingPanel.appendChild(newValueInput);
+
             var saveButton = document.createElement("button");
             saveButton.type = "button";
             saveButton.innerHTML = "сохранить";
             editingPanel.appendChild(saveButton);
+
             var cancelButton = document.createElement("button");
             cancelButton.type = "button";
             cancelButton.innerHTML = "отменить";
             editingPanel.appendChild(cancelButton);
+
             newTodoList.replaceChild(editingPanel, li);
             newValueInput.focus();
+
             saveButton.addEventListener("click", function () {
                 li.children[0].textContent = newValueInput.value;
                 newTodoList.replaceChild(li, editingPanel);
                 newTodoText.focus();
             });
+
             cancelButton.addEventListener("click", function () {
                 newTodoList.replaceChild(li, editingPanel);
                 newTodoText.focus();
