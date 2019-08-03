@@ -7,8 +7,8 @@ $(function () {
 
     function createNote(text) {
         var li = $("<li>");
-        li.html("<span class='text'>" +
-            "</span><button type='button'>x</button><button type='button'>редактировать</button>");
+        li.html("<span class='text'></span>" +
+            "<button type='button'>x</button><button type='button'>редактировать</button>");
         li.children().eq(0).text(text);
         return li;
     }
