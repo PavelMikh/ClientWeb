@@ -41,13 +41,7 @@ $(function () {
         });
 
         editButton.click(function () {
-            var currentIndex = $(li).index();
-
             var currentText = li.children().eq(0).text();
-
-            var firstLevelChildrenList = $(newTodoList).children("li");
-
-            var nextItem = firstLevelChildrenList.eq(currentIndex);
 
             var editingPanel = $("<div>");
             var newValueInput = $("<input type='text'>");
@@ -80,7 +74,7 @@ $(function () {
 
             var tmp;
             newValueInput.val(currentText);
-            nextItem.before(editingPanel);
+            li.before(editingPanel);
             tmp = li.detach();
             newValueInput.focus();
         });
