@@ -9,6 +9,9 @@
       <module fileurl="file://$PROJECT_DIR$/HTML/HTML.iml" filepath="$PROJECT_DIR$/HTML/HTML.iml" />
       <module fileurl="file://$PROJECT_DIR$/JSArray/JSArray.iml" filepath="$PROJECT_DIR$/JSArray/JSArray.iml" />
       <module fileurl="file://$PROJECT_DIR$/JSObject/JSObject.iml" filepath="$PROJECT_DIR$/JSObject/JSObject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhoneBook/PhoneBook.iml" filepath="$PROJECT_DIR$/PhoneBook/PhoneBook.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhoneBookJquery/PhoneBookJquery.iml" filepath="$PROJECT_DIR$/PhoneBookJquery/PhoneBookJquery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PhonebookJquery/PhonebookJquery.iml" filepath="$PROJECT_DIR$/PhonebookJquery/PhonebookJquery.iml" />
       <module fileurl="file://$PROJECT_DIR$/TemperatureConverter/TemperatureConverter.iml" filepath="$PROJECT_DIR$/TemperatureConverter/TemperatureConverter.iml" />
       <module fileurl="file://$PROJECT_DIR$/TodoList/TodoList.iml" filepath="$PROJECT_DIR$/TodoList/TodoList.iml" />
       <module fileurl="file://$PROJECT_DIR$/TodoListJQuery/TodoListJQuery.iml" filepath="$PROJECT_DIR$/TodoListJQuery/TodoListJQuery.iml" />
