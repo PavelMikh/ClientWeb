@@ -72,10 +72,9 @@ $(function () {
                 newTodoText.focus();
             });
 
-            var tmp;
             newValueInput.val(currentText);
             li.before(editingPanel);
-            tmp = li.detach();
+            var tmp = li.detach();
             newValueInput.focus();
         });
 
