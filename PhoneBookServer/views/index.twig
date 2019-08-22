@@ -23,15 +23,15 @@
                     </div>
                 </form>
                 <div class="form-row mb-3">
-                    <div class="col-5">
+                    <div class="col">
                         <input v-model="term" type="text" class="form-control" placeholder="Search">
                     </div>
-                    <div class="col-1">
+                    <div class="col">
                         <button @click="search" type="button" class="btn btn-primary">Search</button>
                     </div>
-                    <div class="col">
+                    <div class="col-5">
                         <transition name="slide">
-                            <span v-cloak v-if="invalid" style="color: red"
+                            <span v-cloak v-if="invalid" style="color: red" style="font-size: small"
                                 v-text="this.inputs.length > 1 ? this.inputs.join(', ') + ' fields are not filled!' :
                                 this.inputs.join() + ' field is not filled!'"></span>
                         </transition>
