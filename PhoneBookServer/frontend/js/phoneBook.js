@@ -1,14 +1,11 @@
-function post(url, data) {
-    return $.post({
-        url: url,
-        data: JSON.stringify(data),
-        contentType: "application/json"
-    });
-}
+import "../css/style.css";
 
-function get(url, data) {
-    return $.get(url, data);
-}
+import $ from "jquery";
+import Vue from "vue";
+import "bootstrap";
+
+import PhoneBookService from "./PhoneBookService";
+import ajax from "./ajax";
 
 let vm = new Vue({
     el: "#app",
@@ -52,7 +49,7 @@ let vm = new Vue({
 
             let self = this;
 
-            post("/addContact", data).done(function (response) {
+            PhoneBookService.addContact(data).done(function (response) {
                 if (!response.success) {
                     alert("Data input incorrectly " + response.message.join(", "));
                 } else {
@@ -69,7 +66,7 @@ let vm = new Vue({
 
         deleteContact: function (contact) {
             let self = this;
-            post("/deleteContact", {id: contact.id}).done(function (response) {
+            PhoneBookService.deleteContact(contact.id).done(function (response) {
                 if (!response.success) {
                     alert(response.message);
                 }
@@ -85,11 +82,7 @@ let vm = new Vue({
         loadData: function () {
             let self = this;
 
-            let data = {
-                term: this.term
-            };
-
-            get("/getContacts", data).done(function (contacts) {
+            PhoneBookService.getContact(this.term).done(function (contacts) {
                 self.contacts = contacts;
             });
         }
