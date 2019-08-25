@@ -1,17 +1,17 @@
 import Ajax from "./ajax"
 
 export default {
-    addContact: function (data) {
+    addContact(data) {
         return Ajax.post("/addContact", data);
     },
 
-    deleteContact: function (id) {
-        return Ajax.post("/deleteContact", {id: id})
+    deleteContact(id) {
+        return Ajax.post("/deleteContact", { id })
     },
 
-    getContact: function (term) {
-        let data = {
-            term: term
+    getContact(term) {
+        const data = {
+            term
         };
 
         return Ajax.get("/getContacts", data);
