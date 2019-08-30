@@ -42,20 +42,12 @@
                 <th scope="col">Surname</th>
                 <th scope="col">Phone number</th>
                 <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
             <tr v-cloak v-for="(contact, index) in contacts">
-                <td>
-                    <input type="checkbox" class="form-check">
-                </td>
-                <td>{{ index + 1 }}.</td>
-                <td>{{ contact.name }}</td>
-                <td>{{ contact.surname }}</td>
-                <td>{{ contact.phone }}</td>
-                <td>
-                    <button @click="confirmDelete(contact)" class="btn btn-danger" type="button">X</button>
-                </td>
+                <contact></contact>
             </tr>
             </tbody>
         </table>
@@ -64,16 +56,16 @@
 
 <script>
     import PhoneBookService from "./PhoneBookService";
+    import Contact from "./Contact.vue";
 
     export default {
+        components: {Contact},
         data() {
             return {
                 invalid: false,
                 inputs: [],
                 contacts: [],
-                name: "",
-                surname: "",
-                phone: "",
+
                 term: ""
             }
         },
@@ -112,23 +104,12 @@
                     } else {
                         this.loadData();
                         this.name = "";
-
                         this.surname = "";
                         this.phone = "";
                     }
                     this.inputs = [];
                     this.invalid = false;
                 });
-            },
-
-            deleteContact(contact) {
-                PhoneBookService.deleteContact(contact.id).done(response => {
-                    if (!response.success) {
-                        alert(response.message);
-                    }
-
-                    this.loadData();
-                })
             },
 
             search() {
@@ -139,14 +120,6 @@
                 PhoneBookService.getContact(this.term).done(contacts => {
                     this.contacts = contacts;
                 });
-            },
-
-            confirmDelete(contact) {
-                if (confirm("Are you sure?")) {
-                    return this.deleteContact(contact);
-                } else {
-                    return false;
-                }
             }
         }
     };
