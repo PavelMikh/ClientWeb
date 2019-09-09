@@ -10,5 +10,5 @@ export default {
     },
     get(url, data) {
         return $.get(url, data);
-    }
+}
 }
