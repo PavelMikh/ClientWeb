@@ -46,9 +46,10 @@
                     </div>
                     <div class="col">
                         <transition name="slide">
-                                <span v-cloak v-if="invalid" style="color: red"
-                                      v-text="this.inputs.length > 1 ? this.inputs.join(', ') + ' fields are not filled!' :
-                                    this.inputs.join() + ' field is not filled!'"></span>
+                            <span v-cloak v-if="invalid" style="color: red"
+                                  v-text="this.inputs.length > 1 ? this.inputs.join(', ') + ' fields are not filled!' :
+                                                                   this.inputs.join() + ' field is not filled!'">
+                            </span>
                             <span v-cloak v-if="exist" style="color: red">This phone number already exist!</span>
                         </transition>
                     </div>
@@ -62,7 +63,8 @@
                             <th scope="col">
                                 <label>All
                                     <input v-model="allContactsSelected"
-                                           :class="this.contacts.length <= 1 ? 'd-none' : ''" @change="selectAll"
+                                           :class="this.contacts.length <= 1 ? 'd-none' : ''"
+                                           @change="selectAll"
                                            type="checkbox" class="form-check"/>
                                 </label>
                             </th>
