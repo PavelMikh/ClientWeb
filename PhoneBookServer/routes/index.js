@@ -50,7 +50,7 @@ router.post("/addContact", function (req, res) {
 router.post("/deleteContact", function (req, res) {
     let id = req.body.id;
 
-    if (id.length > 1) {
+    if (id.length >= 1) {
         contacts = contacts.filter(contact => {
             if (id.indexOf(contact.id) === -1) {
                 return contact.id;
