@@ -6,7 +6,7 @@ export default {
     },
 
     deleteContact(id) {
-        return Ajax.post("/deleteContact", { id })
+        return Ajax.post("/deleteContact", {id})
     },
 
     getContact(term) {

@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <div class="position-fixed">
-            <h1 class="mb-4 text-center">Phone Book</h1>
+            <h1 class="mb-4 text-center" :style="{color: '#676565'}">Phone Book</h1>
             <div class="p-1" :style="{backgroundColor: '#ecfaff'}">
                 <form class="mb-3">
                     <div class="form-row">
@@ -14,7 +14,8 @@
                                    type="text" class="form-control" placeholder="Surname"/>
                         </div>
                         <div class="col-3">
-                            <input v-model.trim="phone" :class="this.phone === '' && invalid ? 'invalid-input' : ''"
+                            <input v-model.trim="phone"
+                                   :class="(this.phone === '' && invalid) || this.exist ? 'invalid-input' : ''"
                                    type="tel" class="form-control" placeholder="Phone number"/>
                         </div>
                         <button @click="addContact" type="button" class="btn btn-primary">add</button>
@@ -57,7 +58,7 @@
             </div>
             <div class="position-relative">
                 <div class="table-scroll">
-                    <table class="table table-bordered mt-2">
+                    <table class="table table-bordered mt-2" :style="{backgroundColor: '#ecfaff', color: '#676565'}">
                         <thead>
                         <tr>
                             <th scope="col">
