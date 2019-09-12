@@ -32,8 +32,17 @@ router.post("/addContact", function (req, res) {
 
         res.send({
             success: false,
-            message: inputs
+            message: 'Data input incorrectly: ' + inputs
         });
+    }
+
+    let contactsPhone = contacts.map(item => item.phone);
+
+    if (contactsPhone.indexOf(contact.phone) !== -1) {
+        res.send({
+            success: false,
+            message: 'Contact with such number already exists.'
+        })
     } else {
         contact.id = id;
         id++;

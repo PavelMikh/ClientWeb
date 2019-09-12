@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+        <v-dialog/>
         <div class="position-fixed">
             <h1 class="mb-4 text-center" :style="{color: '#676565'}">Phone Book</h1>
             <div class="p-1" :style="{backgroundColor: '#ecfaff'}">
@@ -34,7 +35,7 @@
                     <div class="col-4">
                         <transition name="slide">
                             <button v-if="this.selectedContactsId.length > 0"
-                                    @click="confirmDeleteSelected"
+                                    @click="confirmDelete"
                                     class="btn btn-danger"
                                     type="button">delete selected
                             </button>
@@ -51,7 +52,8 @@
                                   v-text="this.inputs.length > 1 ? this.inputs.join(', ') + ' fields are not filled!' :
                                                                    this.inputs.join() + ' field is not filled!'">
                             </span>
-                            <span v-cloak v-if="exist" style="color: red">This phone number already exist!</span>
+                            <span v-cloak v-if="exist"
+                                  style="color: red">Contact with such number already exists!</span>
                         </transition>
                     </div>
                 </div>
@@ -168,6 +170,7 @@
                 }
 
                 let contactsPhone = [];
+
                 if (this.contacts.length > 0) {
                     contactsPhone = this.contacts.map(item => item.phone);
                 }
@@ -183,7 +186,7 @@
 
                     PhoneBookService.addContact(data).done(response => {
                         if (!response.success) {
-                            alert("Data input incorrectly " + response.message.join(", "));
+                            alert(response.message);
                         } else {
                             this.loadData();
                             this.name = "";
@@ -202,14 +205,19 @@
             },
 
             deleteContact(contact) {
-                PhoneBookService.deleteContact(contact.id).done(response => {
-                    if (!response.success) {
-                        alert(response.message);
-                    }
+                if (this.selectedContactsId.length === 0) {
+                    PhoneBookService.deleteContact(contact.id).done(response => {
+                        if (!response.success) {
+                            alert(response.message);
+                        }
 
-                    this.loadData();
-                    this.contactsCount--;
-                })
+                        this.loadData();
+                        this.contactsCount--;
+                    })
+                } else {
+                    this.deleteSelected();
+                }
+                this.$modal.hide('dialog');
             },
 
             deleteSelected() {
@@ -226,19 +234,21 @@
             },
 
             confirmDelete(contact) {
-                if (confirm("Are you sure?")) {
-                    return this.deleteContact(contact);
-                } else {
-                    return false;
-                }
-            },
-
-            confirmDeleteSelected() {
-                if (confirm("Are you sure?")) {
-                    return this.deleteSelected(this.selectedContactsId)
-                } else {
-                    return false;
-                }
+                this.$modal.show('dialog', {
+                    title: 'Confirmation of acton!',
+                    text: 'Are you sure you want to delete?',
+                    buttons: [
+                        {
+                            title: 'Yes',
+                            handler: () => {
+                                this.deleteContact(contact)
+                            }
+                        },
+                        {
+                            title: 'no'
+                        },
+                    ]
+                })
             },
 
             search() {
