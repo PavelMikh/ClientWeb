@@ -1,0 +1,46 @@
+[v-cloak] {
+    display: none;
+}
+
+.invalid-input {
+    background-color: #ffffac;
+    border-color: red;
+}
+
+.invalid-message {
+    font-size: small;
+    color: red;
+}
+
+.slide-enter {
+    opacity: 0;
+}
+
+.slide-enter-active {
+    transition: opacity 0.5s;
+}
+
+.slide-leave-active {
+    transition: opacity 0.5s;
+}
+
+.slide-leave-to {
+    opacity: 0;
+}
+
+.table-scroll {
+    max-height: 350px;
+    overflow: auto;
+}
+
+.pale-blue-background {
+    background-color: #ecfaff
+}
+
+.gray-font-color {
+    color: #676565
+}
+
+.invalid-background-color {
+    background-color : #ffffac
+}

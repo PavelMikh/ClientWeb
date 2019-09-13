@@ -2,8 +2,8 @@
     <div class="container">
         <v-dialog/>
         <div class="position-fixed">
-            <h1 class="mb-4 text-center" :style="{color: '#676565'}">Phone Book</h1>
-            <div class="p-1" :style="{backgroundColor: '#ecfaff'}">
+            <h1 class="mb-4 text-center" class="gray-font-color">Phone Book</h1>
+            <div class="p-1" class="pale-blue-background">
                 <form class="mb-3">
                     <div class="form-row">
                         <div class="col-3">
@@ -42,7 +42,7 @@
                         </transition>
                     </div>
                 </div>
-                <div class="form-row m-1" :style="{backgroundColor : '#ffffac'}">
+                <div class="form-row m-1" class="invalid-background-color">
                     <div class="col">
                         <span :style="{color: 'green'}">Contacts count: {{ this.contactsCount }}</span>
                     </div>
@@ -60,7 +60,7 @@
             </div>
             <div class="position-relative">
                 <div class="table-scroll">
-                    <table class="table table-bordered mt-2" :style="{backgroundColor: '#ecfaff', color: '#676565'}">
+                    <table class="table table-bordered mt-2" class="pale-blue-background gray-font-color}">
                         <thead>
                         <tr>
                             <th scope="col">
@@ -169,11 +169,7 @@
                     return;
                 }
 
-                let contactsPhone = [];
-
-                if (this.contacts.length > 0) {
-                    contactsPhone = this.contacts.map(item => item.phone);
-                }
+                const contactsPhone = this.contacts.map(item => item.phone);
 
                 if (contactsPhone.length === 0 || (contactsPhone.indexOf(this.phone) === -1)) {
                     const data = {
@@ -208,7 +204,7 @@
                 if (this.selectedContactsId.length === 0) {
                     PhoneBookService.deleteContact(contact.id).done(response => {
                         if (!response.success) {
-                            alert(response.message);
+                            return;
                         }
 
                         this.loadData();
