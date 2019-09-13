@@ -2,8 +2,8 @@
     <div class="container">
         <v-dialog/>
         <div class="position-fixed">
-            <h1 class="mb-4 text-center" class="gray-font-color">Phone Book</h1>
-            <div class="p-1" class="pale-blue-background">
+            <h1 class="mb-4 text-center gray-font-color">Phone Book</h1>
+            <div class="p-1 pale-blue-background">
                 <form class="mb-3">
                     <div class="form-row">
                         <div class="col-3">
@@ -42,9 +42,9 @@
                         </transition>
                     </div>
                 </div>
-                <div class="form-row m-1" class="invalid-background-color">
+                <div class="form-row m-1 invalid-background-color">
                     <div class="col">
-                        <span :style="{color: 'green'}">Contacts count: {{ this.contactsCount }}</span>
+                        <span class="green">Contacts count: {{ this.contactsCount }}</span>
                     </div>
                     <div class="col">
                         <transition name="slide">
@@ -60,7 +60,7 @@
             </div>
             <div class="position-relative">
                 <div class="table-scroll">
-                    <table class="table table-bordered mt-2" class="pale-blue-background gray-font-color}">
+                    <table class="table table-bordered mt-2 pale-blue-background gray-font-color">
                         <thead>
                         <tr>
                             <th scope="col">
