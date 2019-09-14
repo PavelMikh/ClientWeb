@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <v-dialog/>
-        <div class="position-fixed">
+        <div class="position-fixed header-width">
             <h1 class="mb-4 text-center gray-font-color">Phone Book</h1>
             <div class="p-1 pale-blue-background">
                 <form class="mb-3">
@@ -19,7 +19,7 @@
                                    :class="(this.phone === '' && invalid) || this.exist ? 'invalid-input' : ''"
                                    type="tel" class="form-control" placeholder="Phone number"/>
                         </div>
-                        <button @click="addContact" type="button" class="btn btn-primary">add</button>
+                        <button @click="addContact" type="button" class="btn btn-primary">Add</button>
                     </div>
                 </form>
                 <div class="form-row mb-3">
@@ -37,7 +37,7 @@
                             <button v-if="this.selectedContactsId.length > 0"
                                     @click="confirmDelete"
                                     class="btn btn-danger"
-                                    type="button">delete selected
+                                    type="button">Delete selected
                             </button>
                         </transition>
                     </div>
@@ -81,7 +81,7 @@
                         <tbody>
                         <tr v-cloak v-for="(contact, index) in contacts">
                             <td>
-                                <input v-model="contact.selected" @change="selectedContact(contact)" type="checkbox"
+                                <input v-model="contact.selected" @change="selectContact(contact)" type="checkbox"
                                        class="form-check"/>
                             </td>
                             <td>{{ index + 1 }}.</td>
@@ -115,37 +115,41 @@
                 contacts: [],
                 selectedContactsId: [],
                 allContactsSelected: false,
-                contactsCount: 0,
-                exist: false
+                exist: false,
             }
         },
         created() {
             this.loadData();
+        },
+        computed: {
+            contactsCount: function () {
+                return this.contacts.length;
+            }
         },
         methods: {
             selectAll() {
                 if (this.allContactsSelected) {
                     this.contacts.forEach(item => {
                         item.selected = true;
-                        this.selectedContact(item);
+                        this.selectContact(item);
                     });
                 } else {
                     this.contacts.forEach(item => {
                         item.selected = false;
-                        this.selectedContact(item);
+                        this.selectContact(item);
                     });
                 }
             },
 
-            selectedContact(contact) {
+            selectContact(contact) {
                 if (contact.selected === true) {
                     this.selectedContactsId.push(contact.id);
                 } else {
-                    this.unselectedContact(contact);
+                    this.unselectContact(contact);
                 }
             },
 
-            unselectedContact(contact) {
+            unselectContact(contact) {
                 this.selectedContactsId = this.selectedContactsId.filter(id => {
                     return id !== contact.id;
                 });
@@ -191,7 +195,6 @@
                         }
                         this.inputs = [];
                         this.invalid = false;
-                        this.contactsCount++;
                         this.selectedContactsId = [];
                         this.exist = false;
                     });
@@ -208,12 +211,11 @@
                         }
 
                         this.loadData();
-                        this.contactsCount--;
                     })
                 } else {
                     this.deleteSelected();
                 }
-                this.$modal.hide('dialog');
+                this.$modal.hide("dialog");
             },
 
             deleteSelected() {
@@ -224,30 +226,33 @@
 
                     this.loadData();
                 });
-                this.contactsCount -= this.selectedContactsId.length;
                 this.selectedContactsId = [];
                 this.allContactsSelected = false;
             },
 
             confirmDelete(contact) {
-                this.$modal.show('dialog', {
-                    title: 'Confirmation of acton!',
-                    text: 'Are you sure you want to delete?',
+                this.$modal.show("dialog", {
+                    title: "Confirmation of acton!",
+                    text: "Are you sure you want to delete?",
                     buttons: [
                         {
-                            title: 'Yes',
+                            title: "Yes",
                             handler: () => {
-                                this.deleteContact(contact)
+                                this.deleteContact(contact);
                             }
                         },
                         {
-                            title: 'no'
-                        },
+                            title: "No"
+                        }
                     ]
                 })
             },
 
             search() {
+                if (this.selectedContactsId.length > 0) {
+                    this.selectedContactsId = [];
+                    this.allContactsSelected = false;
+                }
                 this.loadData();
             },
 
@@ -259,7 +264,6 @@
             loadData() {
                 PhoneBookService.getContact(this.term).done(contacts => {
                     this.contacts = contacts;
-                    this.contactsCount = this.contacts.length;
                 });
             }
         }

@@ -1,13 +1,13 @@
-let express = require('express');
-let router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 let contacts = [];
 let id = 1;
 
 router.get("/getContacts", function (req, res) {
-    let term = (req.query.term || "").toUpperCase();
+    const term = (req.query.term || "").toUpperCase();
 
-    let result = term === "" ? contacts : contacts.filter(function (contact) {
+    const result = term === "" ? contacts : contacts.filter(function (contact) {
         return contact.name.toUpperCase().indexOf(term) >= 0 ||
             contact.phone.toUpperCase().indexOf(term) >= 0 ||
             contact.surname.toUpperCase().indexOf(term) >= 0;
@@ -17,7 +17,7 @@ router.get("/getContacts", function (req, res) {
 });
 
 router.post("/addContact", function (req, res) {
-    let contact = req.body;
+    const contact = req.body;
     if (contact.name === "" || contact.surname === "" || contact.phone === "") {
         let inputs = [];
         if (contact.name === "") {
@@ -57,7 +57,7 @@ router.post("/addContact", function (req, res) {
 });
 
 router.post("/deleteContact", function (req, res) {
-    let id = req.body.id;
+    const id = req.body.id;
 
     if (id.length >= 1) {
         contacts = contacts.filter(contact => {
