@@ -1,100 +1,98 @@
 <template>
     <div class="container">
         <v-dialog/>
-        <div class="position-fixed header-width">
-            <h1 class="mb-4 text-center gray-font-color">Phone Book</h1>
-            <div class="p-1 pale-blue-background">
-                <form class="mb-3">
-                    <div class="form-row">
-                        <div class="col-3">
-                            <input v-model.trim="name" :class="this.name === '' && invalid ? 'invalid-input' : ''"
-                                   type="text" class="form-control" placeholder="Name"/>
-                        </div>
-                        <div class="col-3">
-                            <input v-model.trim="surname" :class="this.surname === '' && invalid ? 'invalid-input' : ''"
-                                   type="text" class="form-control" placeholder="Surname"/>
-                        </div>
-                        <div class="col-3">
-                            <input v-model.trim="phone"
-                                   :class="(this.phone === '' && invalid) || this.exist ? 'invalid-input' : ''"
-                                   type="tel" class="form-control" placeholder="Phone number"/>
-                        </div>
-                        <button @click="addContact" type="button" class="btn btn-primary">Add</button>
+        <h1 class="mb-4 text-center gray-font-color">Phone Book</h1>
+        <div class="p-1 pale-blue-background">
+            <form class="mb-3">
+                <div class="form-row">
+                    <div class="col-3">
+                        <input v-model.trim="name" :class="this.name === '' && invalid ? 'invalid-input' : ''"
+                               type="text" class="form-control" placeholder="Name"/>
                     </div>
-                </form>
-                <div class="form-row mb-3">
-                    <div class="col-5">
-                        <input v-model="term" type="text" class="form-control" placeholder="Search"/>
+                    <div class="col-3">
+                        <input v-model.trim="surname" :class="this.surname === '' && invalid ? 'invalid-input' : ''"
+                               type="text" class="form-control" placeholder="Surname"/>
                     </div>
-                    <div class="col">
-                        <button @click="search" type="button" class="btn btn-primary">Search</button>
+                    <div class="col-3">
+                        <input v-model.trim="phone"
+                               :class="(this.phone === '' && invalid) || this.exist ? 'invalid-input' : ''"
+                               type="tel" class="form-control" placeholder="Phone number"/>
                     </div>
-                    <div class="col">
-                        <button @click="clear" type="button" class="btn btn-primary">Clear</button>
-                    </div>
-                    <div class="col-4">
-                        <transition name="slide">
-                            <button v-if="this.selectedContactsId.length > 0"
-                                    @click="confirmDelete"
-                                    class="btn btn-danger"
-                                    type="button">Delete selected
-                            </button>
-                        </transition>
-                    </div>
+                    <button @click="addContact" type="button" class="btn btn-primary">Add</button>
                 </div>
-                <div class="form-row m-1 invalid-background-color">
-                    <div class="col">
-                        <span class="green">Contacts count: {{ this.contactsCount }}</span>
-                    </div>
-                    <div class="col">
-                        <transition name="slide">
-                            <span v-cloak v-if="invalid" style="color: red"
-                                  v-text="this.inputs.length > 1 ? this.inputs.join(', ') + ' fields are not filled!' :
-                                                                   this.inputs.join() + ' field is not filled!'">
-                            </span>
-                            <span v-cloak v-if="exist"
-                                  style="color: red">Contact with such number already exists!</span>
-                        </transition>
-                    </div>
+            </form>
+            <div class="form-row mb-3">
+                <div class="col-5">
+                    <input v-model="term" type="text" class="form-control" placeholder="Search"/>
+                </div>
+                <div class="col">
+                    <button @click="search" type="button" class="btn btn-primary">Search</button>
+                </div>
+                <div class="col">
+                    <button @click="clear" type="button" class="btn btn-primary">Clear</button>
+                </div>
+                <div class="col-4">
+                    <transition name="slide">
+                        <button v-if="this.selectedContactsId.length > 0"
+                                @click="confirmDelete"
+                                class="btn btn-danger"
+                                type="button">Delete selected
+                        </button>
+                    </transition>
                 </div>
             </div>
-            <div class="position-relative">
-                <div class="table-scroll">
-                    <table class="table table-bordered mt-2 pale-blue-background gray-font-color">
-                        <thead>
-                        <tr>
-                            <th scope="col">
-                                <label>All
-                                    <input v-model="allContactsSelected"
-                                           :class="this.contacts.length <= 1 ? 'd-none' : ''"
-                                           @change="selectAll"
-                                           type="checkbox" class="form-check"/>
-                                </label>
-                            </th>
-                            <th scope="col">№</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Surname</th>
-                            <th scope="col">Phone number</th>
-                            <th scope="col">Delete</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr v-cloak v-for="(contact, index) in contacts">
-                            <td>
-                                <input v-model="contact.selected" @change="selectContact(contact)" type="checkbox"
-                                       class="form-check"/>
-                            </td>
-                            <td>{{ index + 1 }}.</td>
-                            <td>{{ contact.name }}</td>
-                            <td>{{ contact.surname }}</td>
-                            <td>{{ contact.phone }}</td>
-                            <td>
-                                <button @click="confirmDelete(contact)" class="btn btn-danger" type="button">X</button>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
+            <div class="form-row m-1 invalid-background-color">
+                <div class="col">
+                    <span class="green">Contacts count: {{ this.contactsCount }}</span>
                 </div>
+                <div class="col">
+                    <transition name="slide">
+                        <span v-cloak v-if="invalid" class="red-text"
+                              v-text="this.inputs.length > 1 ? this.inputs.join(', ') + ' fields are not filled!' :
+                                                                   this.inputs.join() + ' field is not filled!'">
+                        </span>
+                        <span v-cloak v-if="exist"
+                              class="red-text">Contact with such number already exists!</span>
+                    </transition>
+                </div>
+            </div>
+        </div>
+        <div class="position-relative">
+            <div class="table-scroll">
+                <table class="table table-bordered mt-2 pale-blue-background gray-font-color">
+                    <thead>
+                    <tr>
+                        <th scope="col">
+                            <label>All
+                                <input :class="this.contacts.length <= 1 ? 'd-none' : ''"
+                                       v-model="allContactsSelected"
+                                       @change="selectAll"
+                                       type="checkbox" class="form-check"/>
+                            </label>
+                        </th>
+                        <th scope="col">№</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Surname</th>
+                        <th scope="col">Phone number</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-cloak v-for="(contact, index) in contacts">
+                        <td>
+                            <input v-model="contact.selected" @change="selectContact(contact)" type="checkbox"
+                                   class="form-check"/>
+                        </td>
+                        <td>{{ index + 1 }}.</td>
+                        <td>{{ contact.name }}</td>
+                        <td>{{ contact.surname }}</td>
+                        <td>{{ contact.phone }}</td>
+                        <td>
+                            <button @click="confirmDelete(contact)" class="btn btn-danger" type="button">X</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -128,17 +126,10 @@
         },
         methods: {
             selectAll() {
-                if (this.allContactsSelected) {
-                    this.contacts.forEach(item => {
-                        item.selected = true;
-                        this.selectContact(item);
-                    });
-                } else {
-                    this.contacts.forEach(item => {
-                        item.selected = false;
-                        this.selectContact(item);
-                    });
-                }
+                this.contacts.forEach(item => {
+                    item.selected = this.allContactsSelected;
+                    this.selectContact(item);
+                });
             },
 
             selectContact(contact) {
@@ -170,6 +161,9 @@
                         this.invalid = true;
                         this.inputs.push("Phone");
                     }
+                    if (this.exist) {
+                        this.exist = false;
+                    }
                     return;
                 }
 
@@ -199,6 +193,9 @@
                         this.exist = false;
                     });
                 } else {
+                    if (this.invalid) {
+                        this.invalid = false;
+                    }
                     this.exist = true;
                 }
             },

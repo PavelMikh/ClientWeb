@@ -42,13 +42,13 @@
 }
 
 .invalid-background-color {
-    background-color : #ffffac
+    background-color: #ffffac
 }
 
 .green {
     color: green;
 }
 
-.header-width {
-    width: 100%;
+.red-text {
+    color: red;
 }
