@@ -18,7 +18,9 @@
                                :class="(this.phone === '' && invalid) || this.exist ? 'invalid-input' : ''"
                                type="tel" class="form-control" placeholder="Phone number"/>
                     </div>
-                    <button @click="addContact" type="button" class="btn btn-primary">Add</button>
+                    <div>
+                        <button @click="addContact" type="button" class="btn btn-primary">Add</button>
+                    </div>
                 </div>
             </form>
             <div class="form-row mb-3">
@@ -27,11 +29,7 @@
                 </div>
                 <div class="col">
                     <button @click="search" type="button" class="btn btn-primary">Search</button>
-                </div>
-                <div class="col">
                     <button @click="clear" type="button" class="btn btn-primary">Clear</button>
-                </div>
-                <div class="col-4">
                     <transition name="slide">
                         <button v-if="this.selectedContactsId.length > 0"
                                 @click="confirmDelete"
