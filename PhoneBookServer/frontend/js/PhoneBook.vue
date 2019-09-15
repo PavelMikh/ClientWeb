@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <v-dialog/>
-        <h1 class="mb-4 text-center gray-font-color">Phone Book</h1>
+        <h1 class="mt-3 mb-2 text-center gray-font-color">Phone Book</h1>
         <div class="p-1 pale-blue-background">
             <form class="mb-3">
                 <div class="form-row">
@@ -39,7 +39,7 @@
                     </transition>
                 </div>
             </div>
-            <div class="form-row m-1 invalid-background-color">
+            <div class="form-row m-1 information-row">
                 <div class="col">
                     <span class="green">Contacts count: {{ this.contactsCount }}</span>
                 </div>

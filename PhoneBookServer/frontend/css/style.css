@@ -7,11 +7,6 @@
     border-color: red;
 }
 
-.invalid-message {
-    font-size: small;
-    color: red;
-}
-
 .slide-enter {
     opacity: 0;
 }
@@ -41,7 +36,7 @@
     color: #676565
 }
 
-.invalid-background-color {
+.information-row {
     background-color: #ffffac
 }
 
